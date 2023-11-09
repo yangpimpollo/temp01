@@ -1,0 +1,30 @@
+#pragma once
+#ifndef EDITOR_WINDOW_H_INCLUDED
+#define EDITOR_WINDOW_H_INCLUDED
+
+#include <iostream>
+#include <SFML/Graphics.hpp>
+#include "prime/ResourceManager.h"
+
+using res = wl::ResourceManager;
+
+namespace wl
+{
+	class EditorWindow : public sf::RenderWindow
+	{
+	public:
+		EditorWindow();
+		~EditorWindow();
+		void winEvents(sf::Event event);
+		inline sf::Vector2f getMousePosition() const { return mouse_pos; }; //return mouse position (relative to a window)
+
+	private:
+		sf::Cursor cursor;
+		sf::Vector2i mouse_pos_i;
+		sf::Vector2f mouse_pos;
+
+	};
+
+} // namespace wl
+
+#endif
